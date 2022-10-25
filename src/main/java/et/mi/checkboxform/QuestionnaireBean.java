@@ -1,25 +1,50 @@
 package et.mi.checkboxform;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.jsp.JspWriter;
+
 public class QuestionnaireBean {
 
     public QuestionnaireBean() {
-
+        this.competences = new ArrayList<>(Arrays.asList("Classe","Constructeurs","Instance","Reference","Methode","Collection",
+                "Exception","Interface","Implementation"));
+        this.competencesAcquises = new ArrayList<>();
+        this.competencesNonAcquises = new ArrayList<>();
     }
 
     private String nom = "";
-    private Boolean classe = false;
-    private Boolean constructeur = false;
-    private Boolean instance = false;
-    private Boolean reference = false;
-    private Boolean methode = false;
-    private Boolean exception = false;
-    private Boolean implementation = false;
-    private Boolean collection = false;
-    private Boolean xinterface = false;
+    private ArrayList<String> competences;
+    private ArrayList<String> competencesAcquises;
+    private ArrayList<String> competencesNonAcquises;
     private Map <String,String> errors;
+
+    public ArrayList<String> getCompetences() {
+        return competences;
+    }
+
+    public void setCompetences(ArrayList<String> competences) {
+        this.competences = competences;
+    }
+
+    public ArrayList<String> getCompetencesAcquises() {
+        return competencesAcquises;
+    }
+
+    public void setCompetencesAcquises(ArrayList<String> competencesAcquises) {
+        this.competencesAcquises = competencesAcquises;
+    }
+
+    public ArrayList<String> getCompetencesNonAcquises() {
+        return competencesNonAcquises;
+    }
+
+    public void setCompetencesNonAcquises(ArrayList<String> competencesNonAcquises) {
+        this.competencesNonAcquises = competencesNonAcquises;
+    }
+
+
 
     public String getNom() {
         return nom;
@@ -29,77 +54,7 @@ public class QuestionnaireBean {
         this.nom = nom;
     }
 
-    public Boolean getClasse() {
-        return classe;
-    }
 
-    public void setClasse(Boolean classe) {
-        this.classe = classe;
-    }
-
-    public Boolean getConstructeur() {
-        return constructeur;
-    }
-
-    public void setConstructeur(Boolean constructeur) {
-        this.constructeur = constructeur;
-    }
-
-    public Boolean getInstance() {
-        return instance;
-    }
-
-    public void setInstance(Boolean instance) {
-        this.instance = instance;
-    }
-
-    public Boolean getReference() {
-        return reference;
-    }
-
-    public void setReference(Boolean reference) {
-        this.reference = reference;
-    }
-
-    public Boolean getMethode() {
-        return methode;
-    }
-
-    public void setMethode(Boolean methode) {
-        this.methode = methode;
-    }
-
-    public Boolean getException() {
-        return exception;
-    }
-
-    public void setException(Boolean exception) {
-        this.exception = exception;
-    }
-
-    public Boolean getImplementation() {
-        return implementation;
-    }
-
-    public void setImplementation(Boolean implementation) {
-        this.implementation = implementation;
-    }
-
-    public Boolean getCollection() {
-        return collection;
-    }
-
-    public void setCollection(Boolean collection) {
-        this.collection = collection;
-    }
-
-    public Boolean getXinterface() {
-        return xinterface;
-    }
-
-    public void setXinterface(Boolean xinterface) {
-        this.xinterface = xinterface;
-    }
 
     public Map<String,String> getErrors() {
         return errors;
