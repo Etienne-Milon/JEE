@@ -1,0 +1,40 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Example TLD</short-name>
+    <tag>
+        <name>checkBoxList</name>
+        <tag-class>et.mi.checkboxform.tag.CheckBoxListTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>nomElement</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>liste</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>UlList</name>
+        <tag-class>et.mi.checkboxform.tag.UlListTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>liste</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>OlList</name>
+        <tag-class>et.mi.checkboxform.tag.OlListTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>liste</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

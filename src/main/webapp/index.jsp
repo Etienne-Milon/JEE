@@ -1,13 +1,15 @@
 <%@ page import="java.util.Map" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="mt" uri="/WEB-INF/myTags.tld" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="css/style.css">
 
 <jsp:useBean id="questionnaire" class="et.mi.checkboxform.QuestionnaireBean" scope="request">
     <jsp:setProperty name="notion" property="*"/>
 </jsp:useBean>
+
 <% if (questionnaire.validate()){%>
-    <jsp:forward page="p2.jsp">
+    <jsp:forward page="controller">
         <jsp:param name="nom" value="nom"/>
     </jsp:forward>
 <% }
@@ -20,7 +22,7 @@
     <title>index</title>
 </head>
 <body>
-<h1><%= "Notions Objet et java maitrisées" %>
+<h1><%= "Notions Objet et Java maitrisées" %>
 </h1>
 <h2><%= "Veuillez valider les notions Java que vous connaissez afin de poursuivre ce tutoriel" %>
 </h2>
@@ -31,15 +33,11 @@
             <th colspan="2">Test de connaissance Java</th></tr>
         </thead>
         <tbody>
-        <label for="nom">Votre nom</label>
-        <input type="text" name="nom" id="nom">
+        <label for="nom"></label>
+        <input type="text" name="nom" id="nom" placeholder="Votre nom">
+        <br>
+        <mt:checkBoxList nomElement="notion" liste="${questionnaire.competences}" />
 
-        <c:forEach items="${questionnaire.competences}" var="competence">
-            <tr>
-                <td>${competence}</td>
-                <td><input type="checkbox" name="notion" value="${competence}"></td>
-            </tr>
-        </c:forEach>
         </tbody>
         <tfoot><tr>
             <th colspan="2">

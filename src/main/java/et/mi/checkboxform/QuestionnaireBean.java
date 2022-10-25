@@ -44,8 +44,6 @@ public class QuestionnaireBean {
         this.competencesNonAcquises = competencesNonAcquises;
     }
 
-
-
     public String getNom() {
         return nom;
     }
@@ -53,8 +51,6 @@ public class QuestionnaireBean {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
-
 
     public Map<String,String> getErrors() {
         return errors;
@@ -69,7 +65,4 @@ public class QuestionnaireBean {
         }
         return validate;
     }
-
-
-
 }

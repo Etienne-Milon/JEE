@@ -26,7 +26,10 @@ public class ControllerServlet extends HttpServlet {
     request.setCharacterEncoding("UTF-8");
     QuestionnaireBean questionnaireBean = new QuestionnaireBean();
     questionnaireBean.setNom(request.getParameter("nom"));
-    questionnaireBean.setCompetencesAcquises(new ArrayList<>(Arrays.asList(request.getParameterValues("notion"))));
+
+    if (request.getParameterValues("notion")!=null)
+        questionnaireBean.setCompetencesAcquises(new ArrayList<>(Arrays.asList(request.getParameterValues("notion"))));
+
     for (String notion:questionnaireBean.getCompetences()) {
         if(!questionnaireBean.getCompetencesAcquises().contains(notion))
             questionnaireBean.getCompetencesNonAcquises().add(notion);

@@ -1,4 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="mt" uri="/WEB-INF/myTags.tld" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<link rel="stylesheet" href="css/style.css">
 <html>
 
 <jsp:useBean id="questionnaire" class="et.mi.checkboxform.QuestionnaireBean" scope="request"/>
@@ -16,23 +19,13 @@
         </fmt:message></p>
 
         <h3><fmt:message key="mastered"/> </h3>
-        <ul>
-            <div>
-                <c:forEach items="${questionnaire.competencesAcquises}" var="competence">
-                    <li>${competence}</li>
-                </c:forEach>
-            </div>
-        </ul>
-
+        <div>
+            <mt:UlList liste="${questionnaire.competencesAcquises}"></mt:UlList>
+        </div>
         <h3><fmt:message key="towork"/> </h3>
-        <ul>
-            <div>
-                <c:forEach items="${questionnaire.competencesNonAcquises}" var="competence">
-                    <li>${competence}</li>
-                </c:forEach>
-            </div>
-        </ul>
-        
+        <div>
+            <mt:UlList liste="${questionnaire.competencesNonAcquises}"></mt:UlList>
+        </div>
 </fmt:bundle>
     </body>
 </html>
